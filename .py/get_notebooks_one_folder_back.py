@@ -7,7 +7,7 @@ try:
     import jupytext
 except ModuleNotFoundError:
     sys.exit(
-        "Please, install jupytext to your current environment with the following command \n\n"
+        "\nPlease, install jupytext to your current environment with the following command \n\n"
         "                   pip install jupytext\n"
         "OR, for example, \n"
         "                   poetry add jupytext\n"
@@ -16,9 +16,9 @@ except ModuleNotFoundError:
 # convert to .ipynb all .py files in the current directory into a temporary ipynb folder
 
 name_of_temp_ipynb_folder = 'ipynb'
-
+print()
 run(
-    'jupytext --to "{name_of_temp_ipynb_folder}//ipynb" *.py', 
+    f'jupytext --to "{name_of_temp_ipynb_folder}//ipynb" *.py', 
     executable=('/bin/bash' if 'linux' in sys.platform else None), 
     shell=True, 
     check=True
