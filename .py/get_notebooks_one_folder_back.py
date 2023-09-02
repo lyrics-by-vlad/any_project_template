@@ -1,17 +1,25 @@
 import os
-import sys
 from subprocess import run
+from sys import exit, platform, argv
 from glob import glob
 from shutil import move, rmtree
 try:
     import jupytext
 except ModuleNotFoundError:
-    sys.exit(
-        "\nPlease, install jupytext to your current environment with the following command \n\n"
-        "                   pip install jupytext\n"
-        "OR, for example, \n"
-        "                   poetry add jupytext\n"
-    )
+    try:
+        run(
+            'pip install jupytext', 
+            executable=('/bin/bash' if 'linux' in platform else None), 
+            shell=True, 
+            check=True
+        )
+    except:
+        exit(
+            "\nPlease, install jupytext to your current environment with the following command \n\n"
+            "                   pip install jupytext\n"
+            "OR, for example, \n"
+            "                   poetry add jupytext\n"
+        )
 
 # convert to .ipynb all .py files in the current directory into a temporary ipynb folder
 
@@ -19,7 +27,7 @@ name_of_temp_ipynb_folder = 'ipynb'
 print()
 run(
     f'jupytext --to "{name_of_temp_ipynb_folder}//ipynb" *.py', 
-    executable=('/bin/bash' if 'linux' in sys.platform else None), 
+    executable=('/bin/bash' if 'linux' in platform else None), 
     shell=True, 
     check=True
 )
@@ -43,7 +51,7 @@ path_to_temp_ipynb_files = os.path.join(
 path_to_current_script_converted = os.path.join(
     path_to_current_folder, 
     name_of_temp_ipynb_folder, 
-    os.path.basename(sys.argv[0]).replace('.py', '.ipynb')
+    os.path.basename(argv[0]).replace('.py', '.ipynb')
 )
 os.remove(path_to_current_script_converted)
 
