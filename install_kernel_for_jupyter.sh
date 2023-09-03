@@ -2,8 +2,7 @@
 
 set -e
 
-users_list=$(users)
-current_user=${users_list[0]}
+current_user=$(whoami)
 
 project_dir_name=$(basename "$PWD")
 
