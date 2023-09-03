@@ -5,12 +5,13 @@ As a part of your personal template/scheme for a python project if you want to w
 At first, just clone or download this repository.  
 
 1. Let's say all your python scripts of a project are in the same directory '.py'. And this '.py' directory is located in the root of the project.
-2. So, put `get_notebooks_one_folder_back.py` file into the '.py' directory and `get_jupyter_notebooks.sh` file into the root of the project.
-3. Now you can run `get_jupyter_notebooks.sh` to get converted `.py` files into `.ipynb` files which would be placed in the root of the project. And of course these `.ipynb` files are available to be opened in Jupyter Notebook IDE.
+2. So, put `get_notebooks_one_folder_back.py` file into the '.py' directory and `get_jupyter_notebooks` file into the root of the project.
+   > Here and below `get_jupyter_notebooks` generalizes one of the files: `get_jupyter_notebooks.sh` (for Linux) or `get_jupyter_notebooks.bat` (for Windows).
+4. Now you can run `get_jupyter_notebooks` to get converted `.py` files into `.ipynb` files which would be placed in the root of the project. And of course these `.ipynb` files are available to be opened in Jupyter Notebook IDE.
    
    > **If you want to update (rewrite) related `.py` file automatically at every time you save your changes in its `.ipynb` file from Jupyter Notebook**, just follow the 1 simple step from my [another repository](https://github.com/lyrics-by-vlad/jupyter_best_configs) which is very similar to this one in terms of the goals it pursues.
    
-   > By default it is assumed that you have installed anaconda3 into your home directory as one (and of course not necessarily the main) of your virtual environments holder, but **you can change the venv activator just by replacing the following line of code in `get_jupyter_notebooks.sh` file**:
+   > By default it is assumed that you have installed anaconda3 into your home directory as one (and of course not necessarily the main) of your virtual environments holder, but **you can change the venv activator just by replacing the following line of code in `get_jupyter_notebooks` file**:
    ```
    source /home/$current_user/anaconda3/bin/activate
    # ^ VENV ACTIVATOR
